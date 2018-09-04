@@ -12,16 +12,55 @@
     <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <input id="base" type="color" name="base" value="#0010FF">
+
+    <label for="lefting">Miau</label>
+    <input id="lefting" type="range" name="lefting" min="-40" max="120" value="-30" data-sizing="%">
+
+    <label for="rotation">Miau-Miau</label>
+    <input id="rotation" type="range" name="rotation" min="-360" max="0" value="-360" data-sizing="deg"> 
+
+    
+  
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img id="img" src="universo.jpg">
+  <img id="nyan_cat" src="nyan_cat.png">
 
   <style>
+  :root {
+  	--base: #0010FF;
+  	--spacing:10px;
+  	--blur: 0px;
+  	--rotation: 0deg;
+  	--lefting:-45%;
+  }
+  html{overflow-x:hidden }
+  #img {
 
+  	  
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+      left:var(--lefting);
+      
+    }
+  #nyan_cat{
+  	position:absolute;
+  	width:400px;
+  	top:40%;
+  	left:var(--lefting);
+  	z-index:32;
+  	transform: rotate(var(--rotation));
+  }
+
+  .h1 {
+  	color: var(--base);
+
+  }
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -31,8 +70,8 @@
       background: #193549;
       color: white;
       font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
+      font-weight: 60;
+      font-size: 35px;
     }
 
     .controls {
@@ -40,12 +79,21 @@
     }
 
     input {
-      width:100px;
+      width:80px;
     }
   </style>
 
   <script>
-  </script>
+  const inputs = document.querySelectorAll('.controls,input');
+
+  function handleUpdate(){
+  	const suffix = this.dataset.sizing || '';
+  	document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+
+  } 
+  inputs.forEach(input => input.addEventListener('change', handleUpdate)) ;
+   inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+</script>
 
 </body>
 </html>
