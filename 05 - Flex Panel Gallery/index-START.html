@@ -7,6 +7,11 @@
 </head>
 <body>
   <style>
+
+  :root {
+    --color: rgb(200,200,200);
+   }
+  
     html {
       box-sizing: border-box;
       background:#ffc600;
@@ -24,12 +29,13 @@
     .panels {
       min-height:100vh;
       overflow: hidden;
+      display:flex;
     }
 
     .panel {
       background:#6B0F9C;
       box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
-      color:white;
+      color: var(--color);
       text-align: center;
       align-items:center;
       /* Safari transitionend event.propertyName === flex */
@@ -41,20 +47,37 @@
       font-size: 20px;
       background-size:cover;
       background-position:center;
+      flex:1;
+      justify-content:center;
+      
+      display: flex;
+      flex-direction:column;
+
     }
 
-
-    .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-    .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-    .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-    .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-    .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+    .panel1 { background-image:url(the_kooks.jpg); }
+    .panel2 { background-image:url(caramelos_de_cianuro.jpg); }
+    .panel3 { background-image:url(Keane.jpg); }
+    .panel4 { background-image:url(Arctic_Monkeys.jpg); }
+    .panel5 { background-image:url(rhcp.jpg); }
 
     .panel > * {
       margin:0;
       width: 100%;
       transition:transform 0.5s;
+      display:flex;
+      flex: 1 0 auto;
+      justify-content: center;
+      align-items: center;
     }
+
+    .panel > *:first-child {transform: translateY(-100%);} 
+    
+    .panel.open-active > *:first-child {transform: translateY(0);} 
+
+    .panel > *:last-child {transform: translateY(100%);}
+    
+    .panel.open-active > *:last-child { transform: translateY(0); }
 
     .panel p {
       text-transform: uppercase;
@@ -68,41 +91,82 @@
 
     .panel.open {
       font-size:40px;
+      flex: 5;
+      color:rgb(133,10,133);
     }
+      .open-active > .centro {color:#3439dc;background-color:rgba(245,245,245,0.25);}
 
   </style>
 
 
-  <div class="panels">
-    <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
+ <div class="panels">
+        <div class="panel panel1">
+      <p>The</p>
+      <p class="centro">Mis
+        
+      </p>
+      <p>Kooks</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
+      <p>Caramelos</p>
+      <p class="centro">Bandas
+        </p>
+      <p>de Cianuro</p>
     </div>
     <div class="panel panel3">
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
+      <p>Keane</p>
+      <p class="centro">De</p>
+      <p>Keane</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
+      <p>Arctic</p>
+      <p class="centro">Rock</p>
+      
+      <p>Monkeys</p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+      <p>Red Hot</p>
+      <p class="centro">Favoritas
+      
+      <p>Chili Peppers</p>
     </div>
   </div>
 
-  <script>
+  
+  
 
+  <script>
+  	const panels = document.querySelectorAll('.panel');
+
+  	function toggleOpen(){
+  		this.classList.toggle('open');
+      
+  	}
+
+  	function toggleActive(e){
+  		console.log(e.propertyName)
+  		if (e.propertyName.includes('flex')){
+  			this.classList.toggle('open-active');
+       
+  		}
+  	}
+
+  	panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+  	panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+    caja_colores = ['#ef1df3','#5ae6e6','#0c2121','#f6f9e7','#f99a0d','#f9186b', '#42e25d'];
+
+    const centros = document.querySelectorAll('.centro');
+    function mine(){
+      
+      const colores = caja_colores[Math.floor(Math.random() * 6)];
+      document.documentElement.style.setProperty(`--color`, colores);
+     
+     
+    }
+
+    
+    centros.forEach(centro => centro.addEventListener('click', mine));
   </script>
 
 
