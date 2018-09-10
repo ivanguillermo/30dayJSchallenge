@@ -9,38 +9,91 @@
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [
+         { name: 'Snickers', age: 2 },
+         { name: 'hugo', age: 8 },
+         { name: 'red', age: 10},
+         ];
+   const fs = '80';
 
     function makeGreen() {
       const p = document.querySelector('p');
       p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
+      p.style.fontSize = `${fs}` + 'px';
+      p.style.backgroundColor=`${dogs[2].name}`;
     }
 
     // Regular
-
+    console.log('Normal ps');
+   
     // Interpolated
-
+    console.log('Pero este es %s' , 'interpolado, menor')
     // Styled
-
+    console.log('%c I am big boy %s' ,`font-size:${fs/3}px` , ',causa', )
     // warning!
-
+    console.warn('%c Activo que vienen los verdes', 'font-size:30px')
     // Error :|
-
+    console.error('%s %c Te comiste el %s' , 'GNB: ', 'color:green', 'rojo')
     // Info
-
+    console.info('Los verdes están aquí. Salten al cerca')
     // Testing
+    let GNB = 'verdes';
+    let pacos = function venir(){
+      GNB = 'se llegan al barrio'
+    }
+    console.assert(pacos === 'buenos', 'eres ramón?')
 
+    let date = new Date();
+    let date2json = date.toJSON();
+    let seconds = date.getSeconds();
+    let seconds_from_json = date2json[18];
+    console.log(date);
+    console.log('date2json is: ' + date2json);
+    console.log(seconds);    
+    console.log('seconds_json is: ' + seconds_from_json);
+
+    function console_assert(x)
+    {
+    if (seconds % 2 !== 0 )
+      {
+      console.log('%cAssertion failed: ' + x, 'color:rgb(160,40,120)')
+      };
+    };
+    const xf = 'segundo no par'
+    console_assert(xf);
+    console.assert(seconds % 2 === 0, xf)
     // clearing
-
+    if (seconds % 7 === 0 ){
+    console.clear();}
     // Viewing DOM Elements
+        // Grouping together
+    dogs.forEach(perrito => {
 
-    // Grouping together
+      console.groupCollapsed(`${perrito.name}`);
+      console.log(`Añomio el perritu se llama ${perrito.name}`);
+      console.log(`Tay viejo firulais, ya teney ${perrito.age} años`);
+      console.log(`Soson ${perrito.age * 7} años de uno`);
+    console.groupEnd(`${perrito.name}`);
+  })
 
     // counting
-
+    const k = dogs[1].age;
+    for (n = 0; n < k; n++)
+    {
+      console.count(n);
+    }
+    console.count('1');
     // timing
-
+    console.time('fetching data');
+    fetch('https://api.github.com/users/ivanguillermo')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+        console.info(data.login + `'s id is: ` + data.id);
+      })
+    console.table(dogs);
   </script>
 </body>
 </html>
+
