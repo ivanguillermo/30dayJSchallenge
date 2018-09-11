@@ -50,7 +50,7 @@
       font-weight: 200;
       border-left: 1px solid #D1E2FF;
     }
-
+    .
 
   </style>
    <!--
@@ -96,9 +96,37 @@
       <input type="checkbox">
       <p>Don't forget to tweet your result!</p>
     </div>
+    
   </div>
 
 <script>
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+let lastChecked;
+
+function handleCheck(e)
+{
+	  let inBetween = false;
+	  if(e.shiftKey && this.checked)
+	{
+		
+		checkboxes.forEach
+		(checkbox => 
+		{
+			if(checkbox === this 
+				|| checkbox === lastChecked)
+			{inBetween = !inBetween;}
+			if(inBetween) 
+			{checkbox.checked = true;}
+		}
+		)	
+	}
+	
+lastChecked = this;
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
 </script>
 </body>
 </html>
