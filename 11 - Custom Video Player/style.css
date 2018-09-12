@@ -18,7 +18,7 @@ body {
   justify-content: center;
 }
 
-.player {
+.playero {
   max-width:750px;
   border:5px solid rgba(0,0,0,0.2);
   box-shadow:0 0 20px rgba(0,0,0,0.2);
@@ -28,21 +28,21 @@ body {
 }
 
 /* This css is only applied when fullscreen is active. */
-.player:fullscreen {
+.playero:fullscreen {
   max-width: none;
   width: 100%;
 }
 
-.player:-webkit-full-screen {
+.playero:-webkit-full-screen {
   max-width: none;
   width: 100%;
 }
 
-.player__video {
+.player_video {
   width: 100%;
 }
 
-.player__button {
+.player_button {
   background:none;
   border:0;
   line-height:1;
@@ -54,16 +54,16 @@ body {
   max-width:50px;
 }
 
-.player__button:focus {
+.player_button:focus {
   border-color: #ffc600;
 }
 
-.player__slider {
+.player_slider {
   width:10px;
   height:30px;
 }
 
-.player__controls {
+.player_controls {
   display:flex;
   position: absolute;
   bottom:0;
@@ -74,15 +74,15 @@ body {
   background:rgba(0,0,0,0.1);
 }
 
-.player:hover .player__controls {
+.playero:hover .player_controls {
   transform: translateY(0);
 }
 
-.player:hover .progress {
+.playero:hover .progress {
   height:15px;
 }
 
-.player__controls > * {
+.player_controls > * {
   flex:1;
 }
 
@@ -97,14 +97,15 @@ body {
   cursor:ew-resize;
 }
 
-.progress__filled {
+.progress_filled {
   width:50%;
   background:#ffc600;
   flex:0;
   flex-basis:50%;
 }
  .fullScreen {
-  flex:1;
+  flex:0.3;background-color:black;
+  border:black;font-size: 20px;color:white;
 }
 /* unholy css to style input type="range" */
 
