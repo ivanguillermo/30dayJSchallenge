@@ -27,17 +27,6 @@ body {
   overflow: hidden;
 }
 
-/* This css is only applied when fullscreen is active. */
-.playero:fullscreen {
-  max-width: none;
-  width: 100%;
-}
-
-.playero:-webkit-full-screen {
-  max-width: none;
-  width: 100%;
-}
-
 .player_video {
   width: 100%;
 }
@@ -94,18 +83,23 @@ body {
   height:5px;
   transition:height 0.3s;
   background:rgba(0,0,0,0.5);
-  cursor:ew-resize;
+  cursor:pointer;
 }
+
 
 .progress_filled {
   width:50%;
-  background:#ffc600;
+  background:#C600ff;
   flex:0;
   flex-basis:50%;
 }
- .fullScreen, .resetSpeed {
+ .fullScreen{
   flex:0.3;background-color:black;
   border:black;font-size: 20px;color:white;
+}
+ .resetSpeed {
+  flex:0.3;background-color:black;
+  border:black;font-size: 8px;color:white;
 }
 /* unholy css to style input type="range" */
 
