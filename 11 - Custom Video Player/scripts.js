@@ -4,6 +4,7 @@ const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress_filled');
 const toggle = player.querySelector('.toggle');
 //const skipButtons = player.querySelectorAll('[data-skip]');
+const speedBtn = document.getElementById('speed');
 const ranges = player.querySelectorAll('.player_slider');
 
 
@@ -20,7 +21,6 @@ function skip(t){
 }
 
 function handleRangeUpdate(){
-	console.log(video.duration)
 	video[this.name] = this.value;
 }
 
@@ -28,6 +28,10 @@ function scrub(e){
 	const scrubTime= (e.offsetX / progress.offsetWidth) * video.duration;
 	video.currentTime = scrubTime;
 
+}
+function resetSpeed(){
+	video.playbackRate = 1;
+	speedBtn.value = 1;
 }
 
 function updateButton(){
@@ -38,6 +42,8 @@ function updateButton(){
 function handleProgress(){
 	const percent = (video.currentTime / video.duration)*100;
 	progressBar.style.flexBasis = `${percent}`+'%';
+	progressBar.style.width = `${percent}`+'%';
+	progressBar.style.background = '#c600ff';
 }
 
 
@@ -54,7 +60,7 @@ toggle.addEventListener('timeupdate', handleProgress);
 toggle.addEventListener('click', togglePlay);
 //skipButtons.forEach(button => button.addEventListener('click', skip ));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
-ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 
 
 let mousedown = false;
