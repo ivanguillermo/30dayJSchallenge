@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+*<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 	ctx.lineCap = 'round';
 	ctx.lineWidth = 100;
 	
-	
+
 	let isDrawing = false;
 	let lastX = 0;
 	let lastY = 0;
@@ -29,6 +29,7 @@ function draw(e){
 	if(!isDrawing) return;
 	console.log(e);
 	canvas.style.background= `hsl(${180-hue}, 100%, 50%)`;
+	canvas.style.transform= 'rotation:${hue}'
 
 	ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
 	ctx.beginPath();
@@ -68,9 +69,8 @@ canvas.addEventListener('mouseout', () => isDrawing = false);
 </script>
 
 <style>
-  html, body {
-    margin:0;
-  }
+  html, body { margin:0; }
+  #draw {cursor:url('nyan_cat.png'), auto};
 </style>
 
 </body>

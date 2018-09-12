@@ -116,7 +116,7 @@
     <div class="panel panel3">
       <p>Keane</p>
       <p class="centro">De
-     <audio src="keane_nothing_in_my_way.mp3"></audio></p>
+     <audio src="sounds/keane_nothing_in_my_way.mp3"></audio></p>
       <p>Keane</p>
     </div>
     <div class="panel panel4">
@@ -133,7 +133,7 @@
     </div>
   </div>
 
-  
+  <audio id="player" src=''></audio>
   
 
   <script>
@@ -157,21 +157,29 @@
 
     caja_colores = ['#ef1df3','#5ae6e6','#0c2121','#f6f9e7','#f99a0d','#f9186b', '#42e25d'];
 
+
     const centros = document.querySelectorAll('.centro');
+    const player = document.getElementById('player');
 
     function mine(){
      
       const colores = caja_colores[Math.floor(Math.random() * 6)];
       document.documentElement.style.setProperty(`--color`,colores);
-     
-      const audio = this.querySelector('audio');
-      audio.currentTime = 0;
-      audio.play();
+      
+      const audiosrc = this.querySelector('audio');
+      
+      if (this.style.color !== '#3439dc'){
+      player.src = audiosrc.src;
+      player.currentTime = 0;}
+      player.play();
+      console.log(player.src)
       
     }
-
-
+    
     centros.forEach(centro => centro.addEventListener('click', mine));
+
+    
+   
   </script>
 
 

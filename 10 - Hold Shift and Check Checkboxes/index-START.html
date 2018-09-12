@@ -50,7 +50,9 @@
       font-weight: 200;
       border-left: 1px solid #D1E2FF;
     }
-    .
+    .uncheckAll{
+    	background-color: rgb(12,220,100);
+    }
 
   </style>
    <!--
@@ -96,7 +98,10 @@
       <input type="checkbox">
       <p>Don't forget to tweet your result!</p>
     </div>
-    
+    <div class="item uncheckAll">
+      <input type="checkbox" >
+      <p>Uncheck this 2 uncheck all</p>
+    </div>
   </div>
 
 <script>
@@ -125,7 +130,15 @@ function handleCheck(e)
 lastChecked = this;
 }
 
-checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+const uncheckAll = document.getElementsByClassName('uncheckAll');
+
+function reset ()
+{
+	checkboxes.checked = false;
+}
+
+uncheckAll.addEventListener('click', reset)	
+checkboxes.forEach (checkbox => checkbox.addEventListener('click', handleCheck))
 
 </script>
 </body>
