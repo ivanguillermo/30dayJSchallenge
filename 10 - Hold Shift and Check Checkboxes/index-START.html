@@ -52,6 +52,8 @@
     }
     .uncheckAll{
     	background-color: rgb(12,220,100);
+      width:100%;
+      font-size: 20px;
     }
 
   </style>
@@ -98,9 +100,10 @@
       <input type="checkbox">
       <p>Don't forget to tweet your result!</p>
     </div>
-    <div class="item uncheckAll">
-      <input type="checkbox" >
-      <p>Uncheck this 2 uncheck all</p>
+    <div class="item">
+      <button onclick='reset()' class="uncheckAll" >
+      Uncheck this 2 uncheck all
+    </button>
     </div>
   </div>
 
@@ -109,36 +112,41 @@ const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 
 let lastChecked;
 
-function handleCheck(e)
-{
-	  let inBetween = false;
-	  if(e.shiftKey && this.checked)
-	{
-		
-		checkboxes.forEach
-		(checkbox => 
-		{
-			if(checkbox === this 
-				|| checkbox === lastChecked)
-			{inBetween = !inBetween;}
-			if(inBetween) 
-			{checkbox.checked = true;}
-		}
-		)	
-	}
+checkboxes.forEach
+    (checkbox => {checkbox.checked = false;});
+
+function handleCheck(e) {
+  
+  let inBetween = false;
+  if (e.shiftKey && this.checked) {
+    
+    checkboxes.forEach
+    (checkbox => {
+      console.log(checkbox);
+      if (checkbox === this || checkbox === lastChecked) {
+        inBetween = !inBetween;
+       
+      }
+
+      if (inBetween) {
+        checkbox.checked = true;
+      }
+    });
+  }
 	
 lastChecked = this;
 }
 
-const uncheckAll = document.getElementsByClassName('uncheckAll');
-
 function reset ()
 {
-	checkboxes.checked = false;
+	checkboxes.forEach
+    (checkbox => {checkbox.checked = false;});
+  console.log('fe')
 }
 
-uncheckAll.addEventListener('click', reset)	
+
 checkboxes.forEach (checkbox => checkbox.addEventListener('click', handleCheck))
+
 
 </script>
 </body>

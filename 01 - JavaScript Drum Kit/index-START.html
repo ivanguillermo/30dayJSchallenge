@@ -14,35 +14,35 @@
       <span class="sound">clap</span>
     </div>
     <div data-key="83" class="key">
-      <kbd> S </kbd>
+      <kbd> W </kbd>
       <span class="sound">hihat</span>
     </div>
     <div data-key="68" class="key">
-      <kbd> D </kbd>
+      <kbd> E </kbd>
       <span class="sound">kick</span>
     </div>
     <div data-key="70" class="key">
-      <kbd> F </kbd>
+      <kbd> R </kbd>
       <span class="sound">openhat</span>
     </div>
     <div data-key="71" class="key">
-      <kbd> G </kbd>
+      <kbd> T </kbd>
       <span class="sound">boom</span>
     </div>
     <div data-key="72" class="key">
-      <kbd> H </kbd>
+      <kbd> Y </kbd>
       <span class="sound">ride</span>
     </div>
     <div data-key="74" class="key">
-      <kbd> J </kbd>
+      <kbd> U </kbd>
       <span class="sound">snare</span>
     </div>
     <div data-key="75" class="key">
-      <kbd> K </kbd>
+      <kbd> I </kbd>
       <span class="sound">tom</span>
     </div>
     <div data-key="76" class="key">
-      <kbd>L</kbd>
+      <kbd> O </kbd>
       <span class="sound">tink</span>
     </div>
   </div>
@@ -69,6 +69,7 @@
     key.classList.add('sonando');
     audio.currentTime = 0;
     audio.play();
+    console.log(evento.keyCode)
   }
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', quitarTransition));

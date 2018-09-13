@@ -6,7 +6,59 @@
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+	<center class="frame">
+	<img class="mcDonald" src='donald_trump.jpg'/><br/>
+	<input type='text' class="writemeon" placeholder="Please, type your message for me">
+</center>
 <script>
+	const pressed = [];
+	const secretCode = 'fuck you';
+	const img = document.querySelector('.mcDonald')
+	const body = document.querySelector('body');
+	window.addEventListener('keyup', (e) => {
+		console.log(e.key);
+		pressed.push(e.key);
+		pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+		console.log(pressed);
+		if (pressed.join('').includes(secretCode))
+		{
+		console.log('DING DING');
+		img.src='fuck_you.jpg';
+		body.style.background= 'linear-gradient(135deg, #7c1599 0%, rgba(200,30,20,0.4) 48%,#7e4ae8 100%)';
+		}
+	})
 </script>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y:hidden;
+  background:#7A419B;
+  min-height:100vh;
+  background: linear-gradient(135deg, #15997c 0%,#109992 48%,#4ae87e 100%);
+  background-size:cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.frame{
+	margin-top:2%;
+}
+.mcDonald{
+	width:70%;
+	
+	flex-basis:100%;
+}
+.writemeon {
+	
+	width: 69%;
+	font-size:150%;
+	flex-basis:100%;
+}
+</style>
 </body>
 </html>
