@@ -6,58 +6,142 @@
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
-	<center class="frame">
-	<img class="mcDonald" src='donald_trump.jpg'/><br/>
-	<input type='text' class="writemeon" placeholder="Please, type your message for me">
-</center>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd> A </kbd>
+      <span class="sound">Do</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd> S </kbd>
+      <span class="sound">Re</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd> D </kbd>
+      <span class="sound">Mi</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd> F </kbd>
+      <span class="sound">Fa</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd> G </kbd>
+      <span class="sound">Sol</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd> H </kbd>
+      <span class="sound">La</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd> J </kbd>
+      <span class="sound">Si</span>
+    </div>
+    
+  </div>
+
+  <audio data-key="65" src="notes/c.wav"></audio>
+  <audio data-key="83" src="notes/d.wav"></audio>
+  <audio data-key="68" src="notes/f.wav"></audio>
+  <audio data-key="70" src="notes/g.wav"></audio>
+  <audio data-key="71" src="notes/a.wav"></audio>
+  <audio data-key="72" src="notes/b.wav"></audio>
+  <audio data-key="74" src="notes/c.wav"></audio>
+  
+
+  <audio class="price" src='music/keane_nothing_in_my_way.mp3'></audio>
+
 <script>
+  function quitarTransition(evento) {
+    if (evento.propertyName !== 'transform') return;
+    this.classList.remove('sonando');
+  }
+  function sonar(evento) {
+    const audio = document.querySelector(`audio[data-key="${evento.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${evento.keyCode}"]`);
+    if (!audio) return;
+    key.classList.add('sonando');
+    audio.currentTime = 0;
+    audio.play();
+    console.log(evento.keyCode)
+  }
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', quitarTransition));
+  window.addEventListener('keydown', sonar);
+
 	const pressed = [];
-	const secretCode = 'fuck you';
-	const img = document.querySelector('.mcDonald')
-	const body = document.querySelector('body');
+	const keaneCode = 'asdasdg'
+	const niceCode = 'hjghjgh'
+	const premio = document.querySelector('.price')
+
 	window.addEventListener('keyup', (e) => {
 		console.log(e.key);
 		pressed.push(e.key);
-		pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+		pressed.splice(-keaneCode.length -1, pressed.length - keaneCode.length);
 		console.log(pressed);
-		if (pressed.join('').includes(secretCode))
+
+		if (pressed.join('').includes(keaneCode))
 		{
-		console.log('DING DING');
-		img.src='fuck_you.jpg';
-		body.style.background= 'linear-gradient(135deg, #7c1599 0%, rgba(200,30,20,0.4) 48%,#7e4ae8 100%)';
+	    premio.play();
+	    console.log("All right! Let's hear some keane")
+		pressed = [];
 		}
 	})
 </script>
 <style>
 html {
-  box-sizing: border-box;
+  font-size: 10px;
+  background: url('piano.png') bottom center;
+  background-size: cover;
 }
-
 body {
   margin: 0;
   padding: 0;
   overflow-y:hidden;
-  background:#7A419B;
+  
   min-height:100vh;
-  background: linear-gradient(135deg, #15997c 0%,#109992 48%,#4ae87e 100%);
-  background-size:cover;
+  
+  align-items: center;
+  justify-content: center;
+}
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
-.frame{
-	margin-top:2%;
+.key {
+  border: .4rem solid #ffc600;
+  border-radius: .5rem;
+  margin: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.8);
+  text-shadow: 0 0 .5rem black;
 }
-.mcDonald{
-	width:70%;
-	
-	flex-basis:100%;
+
+.sonando {
+  transform: scale(1.1);
+  border-color: #00c6ff;
+  box-shadow: 0 0 1rem #00c6ff;
 }
-.writemeon {
-	
-	width: 69%;
-	font-size:150%;
-	flex-basis:100%;
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
 }
 </style>
 </body>
