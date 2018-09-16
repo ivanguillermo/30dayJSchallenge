@@ -40,16 +40,16 @@
     
   </div>
 
-  <audio data-key="65" src="notes/c.wav"></audio>
-  <audio data-key="83" src="notes/d.wav"></audio>
-  <audio data-key="68" src="notes/f.wav"></audio>
-  <audio data-key="70" src="notes/g.wav"></audio>
-  <audio data-key="71" src="notes/a.wav"></audio>
-  <audio data-key="72" src="notes/b.wav"></audio>
-  <audio data-key="74" src="notes/c.wav"></audio>
+  <audio class="notes" data-key="65" src="notes/c.wav"></audio>
+  <audio class="notes" data-key="83" src="notes/d.wav"></audio>
+  <audio class="notes" data-key="68" src="notes/f.wav"></audio>
+  <audio class="notes" data-key="70" src="notes/g.wav"></audio>
+  <audio class="notes" data-key="71" src="notes/a.wav"></audio>
+  <audio class="notes" data-key="72" src="notes/b.wav"></audio>
+  <audio class="notes" data-key="74" src="notes/c.wav"></audio>
   
 
-  <audio class="price" src='music/keane_nothing_in_my_way.mp3'></audio>
+  <audio class="premio" src=''></audio>
 
 <script>
   function quitarTransition(evento) {
@@ -57,6 +57,7 @@
     this.classList.remove('sonando');
   }
   function sonar(evento) {
+    const notes = document.querySelector('.notes');
     const audio = document.querySelector(`audio[data-key="${evento.keyCode}"]`);
     const key = document.querySelector(`div[data-key="${evento.keyCode}"]`);
     if (!audio) return;
@@ -71,21 +72,28 @@
 
 	const pressed = [];
 	const keaneCode = 'asdasdg'
-	const niceCode = 'hjghjgh'
-	const premio = document.querySelector('.price')
+	const noBasta = 'ghhjjjjhgassddddsafgghhhhgfs'
+	const premio = document.querySelector('.premio')
+  
 
 	window.addEventListener('keyup', (e) => {
 		console.log(e.key);
 		pressed.push(e.key);
-		pressed.splice(-keaneCode.length -1, pressed.length - keaneCode.length);
-		console.log(pressed);
-
-		if (pressed.join('').includes(keaneCode))
-		{
-	    premio.play();
-	    console.log("All right! Let's hear some keane")
-		pressed = [];
-		}
+		pressed.splice(-noBasta.length -1, pressed.length - noBasta.length)
+		
+		 if (pressed.join('').includes(noBasta))
+    {
+    premio.src="music/fdv_no_basta.mp3";
+      console.log("No Basta");
+    premio.play();
+    }
+    else if (pressed.join('').includes(keaneCode))
+    {
+    premio.src="music/keane_nothing_in_my_way.mp3";
+      console.log("All right! Let's hear some keane")
+    premio.play()
+    }
+    
 	})
 </script>
 <style>

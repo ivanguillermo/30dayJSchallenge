@@ -1,7 +1,11 @@
 
-    html {
+    :root {
+    --check_mark:'f';
+    }
+
+  html {
       box-sizing: border-box;
-      background:url('http://wes.io/hx9M/oh-la-la.jpg') center no-repeat;
+      background:url('granja.jpg') center no-repeat;
       background-size:cover;
       min-height:100vh;
       display:flex;
@@ -23,7 +27,7 @@
 
     .wrapper {
       padding: 20px;
-      max-width: 350px;
+      max-width: 750px;
       background: rgba(255,255,255,0.95);
       box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
     }
@@ -64,9 +68,9 @@
     }
 
     .plates input:checked + label:before {
-      content: '🌮';
+      content: var(--check_mark);
     }
-
+    
     .add-items {
       margin-top: 20px;
     }
