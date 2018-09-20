@@ -19,6 +19,11 @@ function togglePlayBtn(){
 
 }
 
+function death_vid(){
+	videox.src = 'video.webm';
+	videox.play();
+console.log('d')};
+
 function skip(t){
 	//video.currentTime += parseFloat(this.dataset.skip);
 	videox.currentTime += t;
@@ -32,7 +37,7 @@ function handleRangeUpdate(){
 
 function scrub(e){
 	const scrubTime= (e.offsetX / progress.offsetWidth) * videox.duration;
-	video.currentTime = scrubTime;
+	videox.currentTime = scrubTime;
 	console.log(videox.currentTime);
 }
 function resetSpeed(){
@@ -48,7 +53,7 @@ function updateButton(){
 }
 
 function handleProgress(){
-	const percent = (video.currentTime / videox.duration) * 100;
+	const percent = (videox.currentTime / videox.duration) * 100;
 	progressBar.style.flexBasis = `${percent}%`;
 	progressBar.style.width = `${percent}%`;
 	progressBar.style.backgroundColor = '#C600ff';

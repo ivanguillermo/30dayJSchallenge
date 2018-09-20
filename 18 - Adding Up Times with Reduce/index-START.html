@@ -5,12 +5,12 @@
   <title>Videos</title>
 </head>
 <body style="
-background: url('https://nerdist.com/wp-content/uploads/2017/08/Death-Note-Anime.jpg');background-size:cover;color:white;
+background: url('https://im.ziffdavisinternational.com/ign_es/screenshot/default/light_ymeq.jpg');background-size:cover;color:white;background-position:left center;
 ">
   <h2>Aún te quedan <span class="resto"></span>de una de las mejores obras de artes en la historia de la humanidad</h2>
 
    <div class="playero">
-     <video class="player_video viewer" src=""></video>
+     <video class="player_video viewer" src="https://www.dropbox.com/s/pub07zi224lc1a5/Death%20Note%20Capitulo%2001%20Latino%20Completo.mp4?raw=1"></video>
 
      <div class="player_controls">
        <div class="progress">
@@ -58,13 +58,14 @@ input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 
 
    <div class="inbox videos">
     <div class="item"> <input type="checkbox">
-      <a onclick="death_vid('video.webm')"><p class="episode" data-time="22:45"> Rebirth</p></a></div>
+      <a onclick="death_vid()">
+        <p class="episode" data-time="22:45"> Rebirth</p></a></div>
     <div class="item"> <input type="checkbox" >
       <a href=""><p class="episode" data-time="22:45">Confrontation</p></a> </div>
     <div class="item"> <input type="checkbox">
       <a href=""><p class="episode" data-time="22:59"> Dealings</p></a></div>
     <div class="item"> <input type="checkbox">
-      <a href=""><p class="episode" data-time="22:45">  Pursuit </p></a></div>
+      <a href=""><p class="episode" data-time="22:45" style="color:red">  Pursuit </p></a></div>
     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" class="episode">  Tactics </p></a></div>
     <div class="item"> <input type="checkbox">
@@ -88,7 +89,7 @@ input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 
      <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Tactics </p></a></div>
      <div class="item"> <input type="checkbox">
-     <a href=""><p class="episode" class="episode" data-time="22:45">  Decision </p></a></div>
+     <a href=""><p class="episode" data-time="22:45">  Decision </p></a></div>
      <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:58">  Execution </p></a></div>
      <div class="item"> <input type="checkbox">
@@ -115,20 +116,20 @@ input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 
      <a href=""><p class="episode" data-time="22:45">  Impatience </p></a></div>
      <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Father </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:45">
+     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Justice </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:45">
+     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Transfer </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:46">
+     <div class="item"> <input type="checkbox" >
      <a href=""><p class="episode" data-time="22:46">  Scorn  </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:45">
+     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Vigilance </p></a></div>
-     <div class="item"> <input class="a" type="checkbox" data-time="22:45">
+     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  Malice </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:45">
+     <div class="item"> <input type="checkbox">
      <a href=""><p class="episode" data-time="22:45">  1.28 </p></a></div>
-     <div class="item"> <input type="checkbox" data-time="22:45">
-     <a href=""><p class="episode" data-time="22:27">  New World</p></a></div>
+     <div class="item"> <input type="checkbox" >
+     <a href=""><p class="episode red" data-time="22:27">  New World</p></a></div>
     
     <div class="item"><button onclick='reset()' class="uncheckAll">
      Reiniciar lista
@@ -138,13 +139,12 @@ input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 
 <script>
  
   let timeNodes = Array.from(document.querySelectorAll('[data-time]'));
-  let x = Array.from(document.querySelectorAll('input'));
-  let m = Array.from(x.querySelectorAll('checked'));
-  console.log(x);
-  const resto = document.querySelector('.resto')
+  
+  let resto = document.querySelector('.resto');
 
-   
-    const seconds = timeNodes
+ 
+
+      const seconds = timeNodes
     .map(node => node.dataset.time)
     .map(timeCode => {
         const [mins, secs] = timeCode.split(':').map(parseFloat);
@@ -161,15 +161,12 @@ input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 
     resto.innerHTML = `${hours}` + ' horas, ' + `${mins}` + ' minutos y ' + `${secondsLeft}` + ' segundos ' ;
         console.log(hours, mins, secondsLeft);
 
-
 const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 
 let lastChecked;
 
-function death_vid(x){
-  playero.src= x;console.log('d')
-}
-
+checkboxes.forEach
+    (checkbox => {checkbox.checked = false;});
 
 function handleCheck(e) {
   let inBetween = false;
@@ -189,13 +186,18 @@ function handleCheck(e) {
 lastChecked = this;
 }
 
-function reset ()
-{checkboxes.forEach (checkbox => {checkbox.checked = false;});}
+function reset()
+{
+  checkboxes.forEach
+    (checkbox => {checkbox.checked = false;});
+}
+
+
 checkboxes.forEach (checkbox => checkbox.addEventListener('click', handleCheck))
 </script>
 
 <style>
-a{color:white;}
+a{color:white;background-color:white; opacity:0.6;}
 a:hover{color:rgb(40,12,240,0.9);};
 *{;;}
 
@@ -227,7 +229,7 @@ html { font-family: sans-serif; width:100%;overflow-y:hidden;overflow-x:hidden}
     .item:last-child { border-bottom:0; }
 
 
-    input:checked + p {background:#F9F9F9;}
+    input:checked + p {color:red;background:#000;}
 
     input[type="checkbox"] {margin:20px;}
 
@@ -240,6 +242,8 @@ html { font-family: sans-serif; width:100%;overflow-y:hidden;overflow-x:hidden}
       font-size: 20px;
       font-weight: 200;
       display:inline-block;
+      
+      color:black;
       
     }
     .uncheckAll{
