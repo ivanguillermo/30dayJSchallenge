@@ -1,6 +1,6 @@
 
     :root {
-    --check_mark:'f';
+    --check_mark:'';
     }
 
   html {
@@ -59,7 +59,7 @@
     }
 
     .plates input {
-      display: none;
+      display: ;
     }
 
     .plates input + label:before {

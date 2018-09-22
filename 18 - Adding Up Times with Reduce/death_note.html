@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos</title>
+</head>
+<body style="
+background: url('https://im.ziffdavisinternational.com/ign_es/screenshot/default/light_ymeq.jpg');background-size:cover;color:white;background-position:left center;
+">
+  <h2>Aún te quedan <span class="resto"></span>de una de las mejores obras de artes en la historia de la humanidad</h2>
+
+   <div class="playero">
+     <video class="player_video viewer" src="https://www.dropbox.com/s/pub07zi224lc1a5/Death%20Note%20Capitulo%2001%20Latino%20Completo.mp4?raw=1"></video>
+
+     <div class="player_controls">
+       <div class="progress">
+        <div class="progress_filled"></div>
+       </div>
+       <button class="player_button toggle" title="Toggle Play">►</button>
+       <input type="range" name="volume" class="player_slider" min="0" max="1" step="0.05" value="0.2">
+       <input id="speed" type="range" name="playbackRate" class="player_slider" min="0.5" max=()"2" step="0.1" value="1">
+       <button class="resetSpeed" onclick="resetSpeed()">vel: 1x</button>
+       <button onclick='skip(-10)' data-skip="-10" class="player_button">« 10s</button>
+       <button onclick='skip(25)' data-skip="25" class="player_button">25s »</button>
+       <button class="fullScreen" onclick="fullScreening()">[ ]</button>
+     </div>
+     </div>
+   </div>
+ <script src="death_video.js"></script>
+
+   <style>
+.playero {width:55%; border:5px solid rgba(0,0,0,0.2); box-shadow:0 0 20px rgba(0,0,0,0.2); position: absolute; font-size: 0; overflow: hidden;}
+.player_video {width: 100%;}
+.player_button {background:none;border:0;line-height:1;color:white;text-align: center;outline:0;padding: 0;cursor:pointer; max-width:50px;}
+.player_button:focus { border-color: #00c6ff;}
+.player_slider {width:10px;height:30px;}
+.player_controls {display:flex; position: absolute; bottom:0; width: 100%; transform: translateY(100%) translateY(-5px); transition:all .3s;
+  flex-wrap:wrap; background:rgba(0,0,0,0.1);}
+.playero:hover .player_controls {transform: translateY(0);}
+.playero:hover .progress {height:15px;}
+.player_controls > * {flex:1;}
+.progress {flex:10; position: relative; display:flex; flex-basis:100%; height:5px; transition:height 0.3s; background:rgba(0,0,0,0.5); cursor:pointer;}
+.progress_filled { width:50%; background:#C600ff; flex:0; flex-basis:50%;}
+ .fullScreen{ flex:0.3;background-color:black; border:black;font-size: 20px;color:white;}
+ .resetSpeed { flex:0.3;background-color:black; border:black;font-size: 8px;color:white;}
+/* unholy css to style input type="range" */
+input[type=range] { -webkit-appearance: none; background:transparent; width: 100%; margin: 0 5px;}
+input[type=range]:focus { outline: none;}
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8.4px; cursor: pointer; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: rgba(255,255,255,0.8); border-radius: 1.3px; border: 0.2px solid rgba(1, 1, 1, 0);}
+input[type=range]::-webkit-slider-thumb {  height: 15px; width: 15px; border-radius: 50px; background: #ffc600; cursor: pointer; -webkit-appearance: none;  margin-top: -3.5px; box-shadow:0 0 2px rgba(0,0,0,0.2);}
+input[type=range]:focus::-webkit-slider-runnable-track { background: #bada55;}
+input[type=range]::-moz-range-track { width: 100%; height: 8.4px; cursor: pointer; box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0); background: #ffffff;
+  border-radius: 1.3px; border: 0.2px solid rgba(1, 1, 1, 0);}
+input[type=range]::-moz-range-thumb { box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0); height: 15px; width: 15px; border-radius: 50px; background: #ffc600; cursor: pointer;}
+</style>
+
+
+<style>
+.key {
+  border: .4rem solid black;border-radius: .5rem;margin: 1rem;
+  font-size: 1.5rem;padding: 1rem .5rem; transition: all .07s ease;width: 10rem;text-align: center;color: white;
+  background: rgba(0,0,0,0.4);text-shadow: 0 0 .5rem black;
+}
+.sonando {transform: scale(1.1); border-color: #c600ff;
+  box-shadow: 0 0 1rem #c600ff;}
+</style>  
+<script>
+  function quitarTransition(evento) {
+    if (evento.propertyName !== 'transform') return;
+    this.classList.remove('sonando');
+  }
+
+  function sonar(evento) {
+    const audio = document.querySelector(`audio[data-key="${evento.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${evento.keyCode}"]`);
+    if (!audio) return;
+    key.classList.add('sonando');
+    audio.currentTime = 0;
+    audio.play();
+    console.log(evento.keyCode)
+  }
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', quitarTransition));
+  checkboxes.addEventListener('click', sonar);
+</script>
+
+   <div class="inbox videos">
+    <div class="item"> <input type="checkbox"><a onclick="death_vid()"> <p class="episode" data-time="22:45"> Rebirth</p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">Confrontation</p></a> </div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:59"> Dealings</p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45" style="color:red">  Pursuit </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" class="episode">  Tactics </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="20:12">  Unraveling </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="20:12">  Overcast </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:58">  Glare </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Doubt </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" class="episode" >  Assault </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="23:01">  Love </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Confession </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:57">  Friends</p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:58">  Wager </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Tactics </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Decision </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:58">  Execution </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Ally </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Matsuda  </p></a></div>
+    <div class="item"> <input type="checkbox" checked> <a href=""><p class="episode" data-time="22:58">  Makeshift </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Performance </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Guidance </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Frenzy </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Revival </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Silence </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Renewal   </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Abduction </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Impatience </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Father </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Justice </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Transfer </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:46">  Scorn  </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Vigilance </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  Malice </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode" data-time="22:45">  1.28 </p></a></div>
+    <div class="item"> <input type="checkbox"><a href=""><p class="episode red" data-time="22:27">  New World</p></a></div>
+    
+    <div class="item"><button onclick='reset()' class="uncheckAll">
+     Reiniciar lista
+    </button>
+    </div>
+  </div>
+
+<script>
+  let timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+  let resto = document.querySelector('.resto');
+      const seconds = timeNodes
+    .map(node => node.dataset.time)
+    .map(timeCode => {
+     const [mins, secs] = timeCode.split(':').map(parseFloat);
+     return (mins * 60) + secs;})
+    .reduce((total, vidSeconds) => total + vidSeconds);
+
+    let secondsLeft = seconds;
+    const hours = Math.floor(secondsLeft / 3600);
+    secondsLeft = secondsLeft % 3600;
+
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft = secondsLeft % 60;
+    resto.innerHTML = `${hours}` + ' horas, ' + `${mins}` + ' minutos y ' + `${secondsLeft}` + ' segundos ' ;
+        console.log(hours, mins, secondsLeft);
+
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+let lastChecked;
+
+checkboxes.forEach(checkbox => {checkbox.checked = false;});
+
+function handleCheck(e) {
+  let inBetween = false;
+  if (e.shiftKey && this.checked) { checkboxes.forEach (checkbox => { console.log(checkbox);
+    if (checkbox === this || checkbox === lastChecked) { inBetween = !inBetween; }
+      if (inBetween) { checkbox.checked = true; }
+    });
+  }
+lastChecked = this;
+}
+function reset()
+{checkboxes.forEach (checkbox => {checkbox.checked = false;});}
+checkboxes.forEach (checkbox => checkbox.addEventListener('click', handleCheck))
+</script>
+
+<style>
+a{color:white;background-color:white; opacity:0.6;}
+a:hover{color:rgb(40,12,240,0.9);};
+
+html { font-family: sans-serif; width:100%;overflow-y:hidden;overflow-x:hidden}
+.inbox { width:17%; margin:10px auto;  background:transparent; border-radius:0px;
+box-shadow:10px 10px 0 rgba(0,0,0,0.1);  display:inline-block;
+background:transparent; overflow-y:scroll; border:0px solid white;
+max-height:650px; position:relative; left:85%; overflow-x:hidden;top:0%;}
+
+.item {display:flex; align-items:center; border-bottom: 0px solid #F1F1F1;}
+.item:last-child { border-bottom:0;}
+input:checked + p {color:red;background:#000;}
+input[type="checkbox"] {margin:20px;}
+p { margin:0; padding:5px 1px 5px 3px; transition:background 0.2s;flex:1; 
+font-family:'helvetica neue'; font-size: 20px; font-weight: 200; display:inline-block; color:black;     
+    }
+.uncheckAll{background-color:rgb(12,220,100);width:100%;font-size: 20px;}
+</style>
+</body>
+</html>
