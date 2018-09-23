@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>👀👀👀Follow Along Nav</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<style>
+html {box-sizing: border-box;;}
+*, *:before, *:after { box-sizing: inherit;}
+body {  
+  background:url(forest.jpg);
+  background-size:cover;
+  min-height: 100vh;   
+  margin: 0; /* Important! */  
+  font-family: sans-serif;  
+  color:white;  
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.animal {  
+  color:blue;
+  text-decoration: none;
+  background:rgba(255,255,255,0);  
+  border-radius: 50%;  
+  position:absolute;  
+  width:150px;  
+  text-align: center;  
+  height:150px;  
+  display:inline-block;   
+  line-height:150px;
+  font-size:80px; 
+  }
+
+.emoji{color:transparent;}
+
+.highlight { 
+  transition: all 0.2s;  
+  border-bottom:2px solid white;  
+  position: absolute;  
+  top:0;  
+  background:'transparent';  
+  left:0;  
+  border-radius:50%;
+  display: block;  
+  box-shadow: 0 0 10px rgba(0,0,0,0);  
+  color:white;  display:'';
+  width:100px;
+  height:100px;
+  z-index:-1;
+}
+
+</style>
+<div class="animals"></div>
+  <script>
+    const animales= ['🐶','🐱','🐺','🐓','🐰','🐟','🐥','🐧','🐒','🐴','🐗','🐮','🦁','🐨','🐼'];
+    const animals = document.querySelector('.animals');
+
+    let neg = -1
+    for(i=0; i<31; i++)
+    {
+    neg *= -1;
+    let un_animal = animales[Math.floor(Math.random() * animales.length)];
+    let top = Math.random() * 800 
+    let left = Math.random() * 900;
+    animals.innerHTML += `<div class="animal" style="margin:${300 + (top*neg)}px ${500 + (left*neg)}px;"><p class="emoji">`+`${un_animal}`+`</p></div>`;
+    }
+
+  const triggers = document.querySelectorAll('p');
+  const highlight = document.createElement('span');
+  highlight.classList.add('highlight');
+  document.body.appendChild(highlight);
+
+  function highlightLink() {
+    const linkCoords = this.getBoundingClientRect();
+
+    this.style.color= "white";
+
+    console.log(linkCoords);
+    const coords = {
+      width: linkCoords.width,
+      height: linkCoords.height,
+      top: linkCoords.top + window.scrollY,
+      left: linkCoords.left + window.scrollX
+    };
+
+    highlight.style.width = `${coords.width}px`;
+    highlight.style.height = `${coords.height}px`;
+    highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+  }
+
+  triggers.forEach(a => a.addEventListener('mouseover', highlightLink));
+
+  
+  </script>
+</body>
+</html>
