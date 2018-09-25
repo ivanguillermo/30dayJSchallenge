@@ -6,7 +6,8 @@ html {
   font-weight: 200;
 }
 body {
-  margin: 0;
+  transition: background-image 1s;
+  margin: 0; 
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -24,6 +25,11 @@ body {
   border-radius:15px;
   text-align:center;
 }
+body.bayern{background-image:repeating-linear-gradient(45deg, red 0%, white 10%, red 15%, white 25%, blue 67%, red 72%, white 81%, red 89%, blue 95%);}
+body.barca{background-image:repeating-linear-gradient(to left, red 15%, blue 25%, red 67%, blue 91%, red 95%);}
+body.chelsea{background-image:repeating-linear-gradient(to left, white 0%, blue 10%, rgb(0,0,120) 48%, white 70%, blue 90%);}
+body.leverkusen{background-image:repeating-linear-gradient(65deg, red 0%, black 20%, yellow 80%);}
+
 
 body.fixed-nav .site-wrap{
 	transform: scale(1);
@@ -60,10 +66,7 @@ nav {
   z-index: 1;
 }
 
-body.fixed-nav{
-background-image:;
-transition: all 1.5s;
-}
+
 
 body.fixed-nav nav {
 	position:fixed;
