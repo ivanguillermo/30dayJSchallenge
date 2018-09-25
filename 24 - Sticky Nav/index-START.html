@@ -84,10 +84,10 @@
 <script>
 
   const nav = document.querySelector('#main');  const topOfNav = nav.offsetTop;
-  const bay = document.querySelector('#BAYERN');  const topOfBay = bay.offsetTop + 20;
-  const bar = document.querySelector('#BARCA');  const topOfBar = bar.offsetTop + 20;
-  const che = document.querySelector('#CHELSEA');  const topOfChe = che.offsetTop + 20;
-  const lev = document.querySelector('#LEVERKUSEN');  const topOfLev = lev.offsetTop + 20;
+  const bay = document.querySelector('#BAYERN');  const topOfBay = bay.offsetTop ;
+  const bar = document.querySelector('#BARCA');  const topOfBar = bar.offsetTop + 260 ;
+  const che = document.querySelector('#CHELSEA');  const topOfChe = che.offsetTop + 260;
+  const lev = document.querySelector('#LEVERKUSEN');  const topOfLev = lev.offsetTop + 220;
   
 
   function fixNav(){
@@ -104,7 +104,7 @@
   }
 
   function backgrounds_clubs(){
-    if(window.scrollY >= topOfBay && window.scrollY <= topOfBar)  {document.body.classList.add('bayern');} else{document.body.classList.remove('bayern');}
+    if(window.scrollY >= nav.offsetTop && window.scrollY <= topOfBar)  {document.body.classList.add('bayern');} else{document.body.classList.remove('bayern');}
     if(window.scrollY >= topOfBar && window.scrollY <= topOfChe)  {document.body.classList.add('barca');} else{document.body.classList.remove('barca');}
     if(window.scrollY >= topOfChe && window.scrollY <= topOfLev)  {document.body.classList.add('chelsea');} else{document.body.classList.remove('chelsea');}
     if(window.scrollY >= topOfLev)  {document.body.classList.add('leverkusen');} else{document.body.classList.remove('leverkusen');}
