@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background:#eeeeee;
+  background-image: linear-gradient(45deg, red, black);
   font-family:'helvetica neue';
   font-size: 20px;
   font-weight: 200;
@@ -13,24 +13,36 @@ body {
 }
 
 .site-wrap {
-  max-width: 700px;
-  margin: 70px auto;
+  max-width: 900px;
+  margin: 60px auto;
   background:white;
-  padding:40px;
+  padding:30px;
   text-align: justify;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
   transform: scale(0.98);
-  transition: transform 0.5s;
+  transition:all 0.4s;
+  border-radius:15px;
+  text-align:center;
 }
+
+body.fixed-nav .site-wrap{
+	transform: scale(1);
+}
+
+.club{ transition: all 0.6s; width:0px; text-align:center;}
+
+.clubGrow {width:284px;}
 
 header {
   text-align: center;
   height:50vh;
-  background:url(http://wes.io/iEgP/wow-so-deep.jpg) bottom center no-repeat;
+  background:url(Ballack.jpg) top center no-repeat;
   background-size:cover;
   display:flex;
   align-items:center;
   justify-content: center;
+  word-spacing: 140%;
+  text-shadow: 12px 12px red;
 }
 
 h1 {
@@ -46,6 +58,16 @@ nav {
   transition:all 0.5s;
   position: relative;
   z-index: 1;
+}
+
+body.fixed-nav{
+background-image:;
+transition: all 1.5s;
+}
+
+body.fixed-nav nav {
+	position:fixed;
+	box-shadow: 0 5px rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -67,13 +89,28 @@ li.logo {
   max-width:0;
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 0.5s;
   font-weight: 600;
   font-size: 30px;
 }
 
 li.logo a {
   color:black;
+}
+
+.fixed-nav li.logo{
+	max-width:500px;
+}
+
+li.home a{
+float:left;
+transition:all 1s;
+color:rgba(10,10,200,0.9);
+}
+
+.fixed-nav li.home a{
+  position:absolute;
+  color:rgba(200,10,20,0.9);
 }
 
 nav a {
@@ -84,3 +121,13 @@ nav a {
   transition:all 0.2s;
   text-transform: uppercase;
 }
+
+.align-left { float:left;   margin-right:20px; }
+.align-right { float:right; margin-left:20px;  }
+
+.slide-in { opacity:0;  transition:all .5s; }
+
+.align-left.slide-in { transform:translateX(-30%) scale(0.95);}
+.align-right.slide-in { transform:translateX(30%) scale(0.95);}
+
+.slide-in.active { opacity:1; transform:translateX(0%) scale(1);}
