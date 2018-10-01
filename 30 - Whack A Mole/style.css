@@ -12,6 +12,7 @@ body {
   padding: 0;
   margin:0;
   font-family: 'Amatic SC', cursive;
+  
 }
 
 h1 {
@@ -34,6 +35,7 @@ h1 {
   display:flex;
   flex-wrap:wrap;
   margin:0 auto;
+  cursor: url('sniper_eye.png');
 }
 
 .hole {
@@ -44,26 +46,30 @@ h1 {
 
 .hole:after {
   display: block;
-  background: url(dirt.svg) bottom center no-repeat;
+  background: url(rathole.png) bottom center no-repeat;
   background-size:contain;
   content:'';
   width: 100%;
-  height:70px;
+  height:400px;
   position: absolute;
   z-index: 2;
   bottom:-30px;
 }
 
 .mole {
-  background:url('mole.svg') bottom center no-repeat;
+  background:url('maduro1.png') bottom center no-repeat;
   background-size:60%;
   position: absolute;
-  top: 100%;
+  
+  left:100%;
   width: 100%;
-  height: 100%;
+  height: 110%;
   transition:all 0.4s;
 }
 
-.hole.up .mole {
+.hole.up .mole {z-index: 3;
   top:0;
+  left:0;
 }
+
+.mole.blow {background-image:url("maduro.png");}
