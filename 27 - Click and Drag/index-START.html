@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+	 <!--<div style="transform: rotate(90deg);overflow-y: scroll; overflow-x:hidden;height:600px; font-size:180px"><p style="transform:rotate(-90deg)">ssssss<br/>sssssssssssssssss<br/>sssssss<br/>sssssss</p>p></div>-->
+	
   <div class="items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
@@ -33,8 +35,43 @@
     <div class="item item24">24</div>
     <div class="item item25">25</div>
   </div>
-
+<br/>
+ 
 <script>
+const slider = document.querySelector('.items');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+	isDown = true;
+	slider.classList.add('active');
+	startX = e.pageX - slider.offsetLeft;
+	scrollLeft = slider.scrollLeft;
+
+});
+
+
+slider.addEventListener('mouseleave', () => {
+	isDown = false;
+	slider.classList.remove('active')
+});
+
+slider.addEventListener('mouseup', () => {
+	isDown = false;
+	slider.classList.remove('active')
+});
+
+slider.addEventListener('mousemove', (e) => {
+	if(!isDown) return;
+	e.preventDefault();
+	const x = e.pageX - slider.offsetLeft;
+	const walk = (x - startX) * 3;
+	slider.scrollLeft = scrollLeft - walk;
+});
+
+
+
 </script>
 
   </body>
